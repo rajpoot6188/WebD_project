@@ -1,429 +1,521 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-  <title>Hostel booking System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizSphere - Online Quiz Management Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">hostelHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link   " href="/about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/contact.html">Contact us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="gallery.html">Gallery</a>
-          </li>
-        </ul>
-
-        <div class="mx-2">
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-toggle="tooltip"
-            data-bs-placement="top" title="login">Login</button>
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-toggle="tooltip"
-            data-bs-placement="top" title="signup">Signup</button>
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-group">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">QuizSphere</span>
+          <span class="logo-badge">Java DS Platform</span>
         </div>
       </div>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="tab-dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </button>
+        <button class="nav-btn" data-tab="tab-student">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+          Student Portal
+        </button>
+        <button class="nav-btn" data-tab="tab-admin">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Admin Portal
+        </button>
+        <button class="nav-btn" data-tab="tab-leaderboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+          Leaderboard
+        </button>
+        <button class="nav-btn" data-tab="tab-ds-inspector">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          DS Inspector
+        </button>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!--Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login to hostelHub </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Main Content Body -->
+  <main class="main-container">
+
+    <!-- 1. DASHBOARD TAB -->
+    <section id="tab-dashboard" class="tab-content active">
+      <div class="hero-card">
+        <div class="hero-info">
+          <h1>Online Quiz Management Platform</h1>
+          <p>
+            An enterprise-grade quiz and evaluation architecture demonstrating core Java Data Structures: 
+            <strong>HashMap</strong> for $\mathcal{O}(1)$ question lookup, 
+            <strong>Queue</strong> for sequential FIFO question dispatch, 
+            <strong>Stack</strong> for LIFO student answer audit, and 
+            <strong>PriorityQueue</strong> for dynamic leaderboard rankings.
+          </p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" onclick="switchTab('tab-student')">
+              Take a Quiz as Student
+            </button>
+            <button class="btn btn-secondary" onclick="switchTab('tab-admin')">
+              Manage Quizzes as Admin
+            </button>
+          </div>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-
-          <a href="#">Forgot Password</a>
-          <p>Don't have an account? <a href="#">Register here</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Signup Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Get an Account</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="row g-3">
-            <div class="col-lg-9">
-              <input type="First name" placeholder="First name" class="form-control my-2 p-2">
-            </div>
-            <div class="col-lg-9">
-              <input type="Last Name" placeholder="Last name" class="form-control my-2 p-2">
-            </div>
-
-
-            <div class="col-lg-9">
-              <input type="contact" placeholder="Contact No." class="form-control my-2 p-2">
-            </div>
-
-            <div class="col-lg-9">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-              </select>
-            </div>
-
-            <div class="col-lg-9">
-              <input type="Email" placeholder="Email Address" class="form-control my-2 p-2">
-            </div>
-            <div class="col-lg-9">
-              <input type="password" placeholder="*****" class="form-control my-2 p-2">
-            </div>
-            <div class="col-lg-9">
-              <input type="Confirm password" placeholder="Confirm password" class="form-control my-2 p-2">
-            </div>
-
-
-            <div class="col-12">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  I agree to all Terms&Condition
-                </label>
-              </div>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Register</button>
-            </div>
-            <p>Don't have an account? <a href="#">Login</a></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="3.jpg" class="d-block w-100" alt="..." height="600" width="1400">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>Welcome to hostelHub</h2>
-          <p>Go get a new life!</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="2.jpg" class="d-block w-100" alt="..." height="600" width="1400">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>Welcome to hostelHub</h2>
-          <p>Go get a new life!</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="1.jpg" class="d-block w-100" alt="..." height="600" width="1400">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>Welcome to hostelHub</h2>
-          <p>Go get a new life!</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-  <div class="card-group my-5">
-    <div class="card">
-      <img src="room1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Single Room</h5>
-      </div>
-      <div class="card-footer">
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bookModal"
-          data-bs-toggle="booknow" data-bs-placement="top" title="booknow">Book Now</button>
-      </div>
-
-
-
-      <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="bookModalLabel">Create account</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form class="row g-3">
-                <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress2" class="form-label">Address 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="col-md-4">
-                  <label for="inputState" class="form-label">State</label>
-                  <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Check me out
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+        <div class="hero-stats-grid">
+          <div class="stat-card">
+            <span class="stat-number" id="dash-quiz-count">2</span>
+            <span class="stat-label">Active Quizzes</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="dash-question-count">9</span>
+            <span class="stat-label">Total Questions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="dash-attempts-count">4</span>
+            <span class="stat-label">Quiz Attempts</span>
+          </div>
+          <div class="stat-card highlight">
+            <span class="stat-number" id="dash-top-score">50/50</span>
+            <span class="stat-label">High Score</span>
           </div>
         </div>
       </div>
 
-
-
-    </div>
-    <div class="card mx-3">
-      <img src="room2.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Double Room</h5>
+      <!-- Quick Quiz Directory -->
+      <div class="section-header">
+        <h2>Available Quizzes</h2>
+        <span class="section-sub">Choose a quiz to start testing or inspect questions</span>
       </div>
-      <div class="card-footer">
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bookModal">Book
-          Now</button>
+      <div class="quiz-grid" id="dashboard-quiz-list">
+        <!-- Rendered dynamically -->
       </div>
-    </div>
+    </section>
 
-    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="bookModalLabel">Create account</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- 2. STUDENT PORTAL TAB -->
+    <section id="tab-student" class="tab-content">
+      <!-- Student Profile Header / Prompt -->
+      <div class="card student-bar">
+        <div class="student-info-group">
+          <div class="avatar-circle" id="student-avatar">S</div>
+          <div>
+            <h3 id="student-name-display">Guest Student</h3>
+            <span class="badge badge-neutral" id="student-id-display">ID: STU-GUEST</span>
           </div>
-          <div class="modal-body">
-            <form class="row g-3">
-              <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-              </div>
-              <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-              </div>
-              <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-              </div>
-              <div class="col-12">
-                <label for="inputAddress2" class="form-label">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-              </div>
-              <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="col-md-4">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
-                    Check me out
-                  </label>
-                </div>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">Sign in</button>
-              </div>
-            </form>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="promptStudentProfile()">
+          Change Student Profile
+        </button>
+      </div>
+
+      <!-- Active Quiz View Container (Shown when a quiz is running) -->
+      <div id="quiz-runner-container" class="quiz-runner-card" style="display: none;">
+        <div class="quiz-runner-header">
+          <div>
+            <span class="badge badge-primary" id="runner-quiz-badge">JAVA101</span>
+            <h2 id="runner-quiz-title">Core Java Programming</h2>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="quiz-runner-meta">
+            <div class="timer-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span id="runner-timer">00:00</span>
+            </div>
+            <span class="badge badge-success" id="runner-score-badge">Marks: 10</span>
+          </div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span id="runner-progress-text">Question 1 of 5</span>
+            <span id="runner-progress-pct">20%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="runner-progress-fill" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <!-- Question Body -->
+        <div class="question-container">
+          <div class="question-header">
+            <span class="q-number" id="runner-q-id">Q1</span>
+            <h3 class="q-text" id="runner-q-text">Which of the following is not a primitive data type in Java?</h3>
+          </div>
+
+          <div class="options-container" id="runner-options-list">
+            <!-- Rendered options A, B, C, D -->
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="quiz-runner-footer">
+          <button class="btn btn-secondary" id="btn-quiz-prev" onclick="handlePreviousQuestion()">
+            ← Previous (Stack Backtrack)
+          </button>
+          <div class="footer-right">
+            <button class="btn btn-secondary" onclick="handleSkipQuestion()">
+              Skip
+            </button>
+            <button class="btn btn-primary" id="btn-quiz-next" onclick="handleNextQuestion()">
+              Next Question →
+            </button>
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- Quiz Selection View (Shown when no quiz is currently running) -->
+      <div id="quiz-selection-container">
+        <div class="section-header">
+          <h2>Select a Quiz to Begin</h2>
+          <span class="section-sub">Answer questions sequentially; results and leaderboard update immediately.</span>
+        </div>
+        <div class="quiz-grid" id="student-quiz-list">
+          <!-- Rendered dynamically -->
+        </div>
 
-
-
-    <div class="card">
-      <img src="room3.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Triple Room</h5>
+        <!-- Past Attempts Section -->
+        <div class="section-header" style="margin-top: 36px;">
+          <h2>Your Recent Quiz Attempts</h2>
+          <span class="section-sub">Personal test records and evaluations</span>
+        </div>
+        <div class="card" id="student-history-card">
+          <div id="student-history-table-container">
+            <!-- Dynamically populated table -->
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bookModal">Book
-          now</button>
+    </section>
+
+    <!-- 3. ADMINISTRATOR PORTAL TAB -->
+    <section id="tab-admin" class="tab-content">
+      <div class="admin-toolbar">
+        <div class="admin-toolbar-left">
+          <h2>Quiz & Question Administration</h2>
+          <p>Create quizzes and execute Add, Update, and Delete operations on multiple-choice questions.</p>
+        </div>
+        <div class="admin-toolbar-right">
+          <button class="btn btn-secondary" onclick="openCreateQuizModal()">
+            + Create New Quiz
+          </button>
+          <button class="btn btn-primary" onclick="openAddQuestionModal()">
+            + Add New Question
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Selector Filter for Admin -->
+      <div class="admin-filter-bar card">
+        <label for="admin-quiz-selector"><strong>Active Quiz Context:</strong></label>
+        <select id="admin-quiz-selector" onchange="onAdminQuizSelected()">
+          <!-- Populated with Quizzes -->
+        </select>
+        <div class="admin-quiz-summary" id="admin-quiz-meta">
+          <!-- Meta stats of selected quiz -->
+        </div>
+      </div>
+
+      <!-- Questions List Table / Card View -->
+      <div class="card questions-table-card">
+        <div class="card-header-flex">
+          <h3>Questions in Quiz (<span id="admin-question-count">0</span>)</h3>
+          <span class="badge badge-neutral">Data Structure: HashMap&lt;Integer, Question&gt;</span>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="admin-questions-table">
+            <thead>
+              <tr>
+                <th style="width: 60px;">ID</th>
+                <th>Question Text</th>
+                <th>Options & Answers</th>
+                <th style="width: 80px;">Marks</th>
+                <th style="width: 160px; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-questions-tbody">
+              <!-- Rendered rows with Edit / Delete -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEADERBOARD TAB -->
+    <section id="tab-leaderboard" class="tab-content">
+      <div class="leaderboard-header card">
+        <div>
+          <h2>Leaderboard & Rankings</h2>
+          <p>Real-time candidate standings ranked using a <strong>PriorityQueue (Max-Heap)</strong> based on score and completion time.</p>
+        </div>
+        <div class="filter-group">
+          <label for="leaderboard-filter">Filter by Assessment:</label>
+          <select id="leaderboard-filter" onchange="renderLeaderboard()">
+            <option value="GLOBAL">🌐 Global Leaderboard (All Quizzes)</option>
+            <!-- Dynamically populated with specific quizzes -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Podium Top 3 Display -->
+      <div class="podium-container" id="leaderboard-podium">
+        <!-- Rendered Top 3: 2nd, 1st, 3rd -->
+      </div>
+
+      <!-- Full Standings Table -->
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table" id="leaderboard-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Rank</th>
+                <th>Student</th>
+                <th>Quiz</th>
+                <th>Score</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DATA STRUCTURES INSPECTOR TAB -->
+    <section id="tab-ds-inspector" class="tab-content">
+      <div class="section-header">
+        <h2>Java Data Structures Live Inspector</h2>
+        <span class="section-sub">Visual verification of data structures used throughout the case study implementation</span>
+      </div>
+
+      <div class="ds-grid">
+        <!-- DS Card 1: HashMap -->
+        <div class="card ds-card">
+          <div class="ds-badge">$\mathcal{O}(1)$ Lookup</div>
+          <h3>1. HashMap&lt;Integer, Question&gt;</h3>
+          <p>Stores questions mapped by unique Question ID for instant constant-time retrieval, updates, and deletions.</p>
+          <div class="ds-visual" id="inspector-hashmap-view">
+            <!-- JSON / Key-Value visual -->
+          </div>
+        </div>
+
+        <!-- DS Card 2: Queue -->
+        <div class="card ds-card">
+          <div class="ds-badge">FIFO Delivery</div>
+          <h3>2. Queue&lt;Question&gt; (LinkedList)</h3>
+          <p>Serves multiple-choice questions sequentially to the candidate in First-In-First-Out order during the exam.</p>
+          <div class="ds-visual" id="inspector-queue-view">
+            <!-- Queue items -->
+          </div>
+        </div>
+
+        <!-- DS Card 3: Stack -->
+        <div class="card ds-card">
+          <div class="ds-badge">LIFO Audit</div>
+          <h3>3. Stack&lt;StudentAnswer&gt; (ArrayDeque)</h3>
+          <p>Maintains student response history. Allows backtracking and reviewing previous answers in Last-In-First-Out order.</p>
+          <div class="ds-visual" id="inspector-stack-view">
+            <!-- Stack frames -->
+          </div>
+        </div>
+
+        <!-- DS Card 4: PriorityQueue -->
+        <div class="card ds-card">
+          <div class="ds-badge">Max-Heap Sorting</div>
+          <h3>4. PriorityQueue&lt;QuizResult&gt;</h3>
+          <p>Dynamically pulls the highest scores to the top of the leaderboard utilizing a comparator with tie-breaker logic.</p>
+          <div class="ds-visual" id="inspector-heap-view">
+            <!-- Heap ranking visual -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal 1: Student Profile Dialog -->
+  <div class="modal-overlay" id="modal-student-profile">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Student Identity</h3>
+        <button class="modal-close" onclick="closeModal('modal-student-profile')">&times;</button>
+      </div>
+      <form id="form-student-profile" onsubmit="saveStudentProfile(event)">
+        <div class="form-group">
+          <label for="input-student-id">Student ID / Roll No:</label>
+          <input type="text" id="input-student-id" required placeholder="e.g. STU105, CS2024-01">
+        </div>
+        <div class="form-group">
+          <label for="input-student-name">Full Name:</label>
+          <input type="text" id="input-student-name" required placeholder="e.g. Samantha Miller">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-student-profile')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Profile</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Create Quiz Dialog -->
+  <div class="modal-overlay" id="modal-create-quiz">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Create New Assessment Quiz</h3>
+        <button class="modal-close" onclick="closeModal('modal-create-quiz')">&times;</button>
+      </div>
+      <form id="form-create-quiz" onsubmit="handleCreateQuiz(event)">
+        <div class="form-group">
+          <label for="input-quiz-id">Unique Quiz ID:</label>
+          <input type="text" id="input-quiz-id" required placeholder="e.g. PY101, SQL202" style="text-transform: uppercase;">
+        </div>
+        <div class="form-group">
+          <label for="input-quiz-title">Quiz Title:</label>
+          <input type="text" id="input-quiz-title" required placeholder="e.g. Python Fundamentals">
+        </div>
+        <div class="form-group">
+          <label for="input-quiz-desc">Description / Instructions:</label>
+          <textarea id="input-quiz-desc" rows="3" placeholder="Brief outline of concepts covered..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-create-quiz')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Quiz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Add / Edit Question Dialog -->
+  <div class="modal-overlay" id="modal-question-editor">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 id="modal-question-title">Add Multiple-Choice Question</h3>
+        <button class="modal-close" onclick="closeModal('modal-question-editor')">&times;</button>
+      </div>
+      <form id="form-question-editor" onsubmit="handleSaveQuestion(event)">
+        <input type="hidden" id="edit-question-id" value="">
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label for="input-q-quiz">Target Quiz:</label>
+            <select id="input-q-quiz" required>
+              <!-- Target Quiz options -->
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="input-q-marks">Marks / Points:</label>
+            <input type="number" id="input-q-marks" min="1" max="100" value="10" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input-q-text">Question Prompt:</label>
+          <textarea id="input-q-text" rows="3" required placeholder="Enter the question text clearly..."></textarea>
+        </div>
+
+        <label><strong>Answer Options:</strong> (Select the radio button for the correct answer)</label>
+        <div class="options-editor-list">
+          <div class="option-input-row">
+            <input type="radio" name="correct-option-radio" value="1" id="radio-opt-1" checked>
+            <label for="radio-opt-1" class="opt-label">A</label>
+            <input type="text" id="input-opt-1" required placeholder="Option A text">
+          </div>
+          <div class="option-input-row">
+            <input type="radio" name="correct-option-radio" value="2" id="radio-opt-2">
+            <label for="radio-opt-2" class="opt-label">B</label>
+            <input type="text" id="input-opt-2" required placeholder="Option B text">
+          </div>
+          <div class="option-input-row">
+            <input type="radio" name="correct-option-radio" value="3" id="radio-opt-3">
+            <label for="radio-opt-3" class="opt-label">C</label>
+            <input type="text" id="input-opt-3" required placeholder="Option C text">
+          </div>
+          <div class="option-input-row">
+            <input type="radio" name="correct-option-radio" value="4" id="radio-opt-4">
+            <label for="radio-opt-4" class="opt-label">D</label>
+            <input type="text" id="input-opt-4" required placeholder="Option D text">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-question-editor')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-question">Save Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Quiz Result Card Modal -->
+  <div class="modal-overlay" id="modal-quiz-result">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3>Quiz Evaluation & Result Card</h3>
+        <button class="modal-close" onclick="closeModal('modal-quiz-result')">&times;</button>
+      </div>
+      <div class="result-body">
+        <div class="result-score-banner">
+          <div class="result-score-circle">
+            <span class="res-num" id="res-score-val">40</span>
+            <span class="res-total" id="res-total-val">/ 50</span>
+          </div>
+          <div class="result-badge-col">
+            <span class="badge badge-lg" id="res-grade-badge">Grade A+ (90%)</span>
+            <h4 id="res-student-header">Alice Smith (STU001)</h4>
+            <span class="text-muted" id="res-quiz-header">Core Java Programming [JAVA101]</span>
+          </div>
+        </div>
+
+        <div class="result-stats-row">
+          <div class="res-mini-stat">
+            <span class="label">Total Questions</span>
+            <span class="val" id="res-stat-total">5</span>
+          </div>
+          <div class="res-mini-stat correct">
+            <span class="label">Correct Answers</span>
+            <span class="val" id="res-stat-correct">4</span>
+          </div>
+          <div class="res-mini-stat wrong">
+            <span class="label">Wrong / Skipped</span>
+            <span class="val" id="res-stat-wrong">1</span>
+          </div>
+          <div class="res-mini-stat">
+            <span class="label">Percentage</span>
+            <span class="val" id="res-stat-pct">80%</span>
+          </div>
+        </div>
+
+        <!-- Detailed Question Breakdown -->
+        <h4 style="margin-top: 24px; margin-bottom: 12px;">Detailed Question Review:</h4>
+        <div class="review-list" id="res-review-list">
+          <!-- Populated question by question -->
+        </div>
+
+        <div class="modal-actions" style="margin-top: 24px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-quiz-result')">Close</button>
+          <button type="button" class="btn btn-primary" onclick="goToLeaderboardFromResults()">View on Leaderboard 🏆</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
 
-
-  <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="bookModalLabel">Create account</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="col-12">
-              <label for="inputAddress2" class="form-label">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="col-md-6">
-              <label for="inputCity" class="form-label">City</label>
-              <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-              <label for="inputState" class="form-label">State</label>
-              <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="inputZip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
-            </div>
-            <div class="col-12">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <p>© 2022–2023 hostelHub, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-
-
-
-  <!-- Optional JavaScript; choose one of the two! -->
-
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
-
+  <script src="app.js"></script>
 </body>
-
 </html>
